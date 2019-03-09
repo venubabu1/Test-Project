@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="AppModule">
+<head>
+
+ <title> Venu Babu</title>
+    <script type="text/javascript" src="angular.js"></script>
+    <script type="text/javascript">
+    	  var m1=angular.module('AppModule',[]);
+    	  m1.controller("c1",function($scope){
+           $scope.s={};
+            $scope.students=[
+                            {"id":4,"name":"Krishana"},
+                            {"id":2,"name":"Venu"},
+                            {"id":5,"name":"Siva"},
+                            {"id":1,"name":"Nandini"},
+                            {"id":3,"name":"Kumari"}
+                         ]});
+    	</script>
+
+</head>
+<body ng-controller="c1">
+
+   <table border="1">
+   	<tr>
+	<td><input type="text" ng-model="s.id" ></td>
+	<td><input type="text" ng-model="s.name"></td>
+	</tr>
+   	<tr>
+   		<td><a ng-click="columaName='id'"> id </a></td>
+   		<td><a ng-click="columaName='name'"> Name </a></td>
+
+</tr> 
+
+   	<tr ng-repeat="student in students | filter : s ">
+   		<td>{{student.id}}</td>
+   		<td>{{student.name}}</td>
+</tr> 
+
+
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html ng-app="AppModule">
+<head>
+
+  
+    <title> Venu Babu</title>
+    <script type="text/javascript" src="angular.js"></script></script>
+    <script type="text/javascript">
+    	  var m1=angular.module('AppModule',[]);
+    	  m1.controller("c1",function($scope){
+          $scope.message="This is the text Message";
+          $scope.salary =2500;
+          $scope.student={"id":1,"name":"Nandini"};
+          $scope.columnName='id';
+          $scope.dob=new Date();
+          $scope.students=[
+                            {"id":4,"name":"Krishana"},
+                            {"id":2,"name":"Venu"},
+                            {"id":5,"name":"Siva"},
+                            {"id":1,"name":"Nandini"},
+                            {"id":3,"name":"Kumari"},
+                         ];
+    	});
+
+
+    </script>
+</head>
+<body ng-controller="c1">
+    Message is {{message|uppercase}}<br>
+    Message is {{message|lowercase}}<br>
+    Salary is {{salary|currency}}<br>
+    Salary is {{salary|currency:"&#8377"}}<br>
+    Student data is {{student|json}}<br>
+    date of birth is {{dob | date: "dd/MMM/yyyy"}}<br>
+
+  
+
+   <table border="1">
+   	<tr>
+   		<td><a ng-click="columaName='id'"> id </a></td>
+   		<td><a ng-click="columaName='name'"> Name </a></td>
+
+</tr> 
+<tr ng-repeat="s in students | orderBy:columaName">
+   		<td>{{s.id}}</td>
+   		<td>{{s.name}}</td>
+</tr> 
+
+   </table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
